@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Nop Commerce" parallel="false">
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="Commons.MethodListener" />
+		<listener class-name="reportConfig.ExtentTestListenerVersion4" />			
+					
+	</listeners>
+
+
+  <test name="Run On FIREFOX">
+  	<parameter name="browser" value="firefox"></parameter>
+    <classes>
+	    <class name="Com.nopcommerce_Login.Login_15_Data_Faker"/>
+    </classes>
+  </test> 
+  
+<!--   <test name="Run On EDGE"> -->
+<!--   	<parameter name="browser" value="edge"></parameter> -->
+<!--     <classes> -->
+<!-- 	    <class name="Com.nopcommerce_Login.Login_15_Data_Faker"/> -->
+<!--     </classes> -->
+<!--   </test>  -->
+  
+
+   
+</suite> 
