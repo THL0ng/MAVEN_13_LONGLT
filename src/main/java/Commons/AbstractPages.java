@@ -135,6 +135,7 @@ public class AbstractPages {
 	
 	public void clickToElement(WebDriver driver,String locator) {
 		element = findElementByXpath(driver,locator);
+		highlightElement(driver, locator);
 		if(driver.toString().contains("internet explorer")) {
 			clickToElementByJS(driver, locator);
 			sleepInSecond(3);
@@ -145,6 +146,7 @@ public class AbstractPages {
 	
 	public void clickToElement(WebDriver driver,String locator, String...values) {
 		element = findElementByXpath(driver,locator,values);
+		highlightElement(driver, locator, values);
 		if(driver.toString().contains("internet explorer")) {
 			clickToElementByJS(driver, locator,values);
 			sleepInSecond(3);
@@ -154,12 +156,14 @@ public class AbstractPages {
 	}
 	
 	public void selectItemInDropdown (WebDriver driver,String locator, String valueItem) {
+		highlightElement(driver, locator);
 		element = findElementByXpath(driver, locator);
 		select = new Select(element);
 		select.selectByVisibleText(valueItem);
 	}
 	
 	public void selectItemInDropdown (WebDriver driver,String locator, String valueItem,String...values) {
+		highlightElement(driver, locator, values);
 		element = findElementByXpath(driver, locator,values);
 		select = new Select(element);
 		select.selectByVisibleText(valueItem);
@@ -196,6 +200,7 @@ public class AbstractPages {
 	}
 	
 	public void sendkeyToElement(WebDriver driver,String locator , String value) {
+		highlightElement(driver, locator);
 		findElementByXpath(driver, locator).clear();
 		findElementByXpath(driver, locator).sendKeys(value);
 		try {
@@ -208,6 +213,7 @@ public class AbstractPages {
 	
 	
 	public void sendkeyToElement(WebDriver driver,String locator , String valueToSenkey, String... values) {
+		highlightElement(driver, locator, values);
 		findElementByXpath(driver, locator, values).clear();
 		findElementByXpath(driver, locator, values).sendKeys(valueToSenkey);
 		try {
@@ -222,16 +228,19 @@ public class AbstractPages {
 	}
 	
 	public String getTextlement(WebDriver driver,String locator) {
+		highlightElement(driver, locator);
 		return findElementByXpath(driver, locator).getText();
 	}
 	
 	public String getTextlement(WebDriver driver,String locator,String... values) {
+		highlightElement(driver, locator, values);
 		return findElementByXpath(driver, locator, values).getText();
 	}
 	
 	public boolean isElementDisplayed(WebDriver driver,String locator) {
 		overrideGlobalTimeout(driver, GlobalConstants.SHORT_TIMEOUT);
 		try {
+			highlightElement(driver, locator);
 			element = findElementByXpath(driver, locator);
 			overrideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
 			return element.isDisplayed();
@@ -244,6 +253,7 @@ public class AbstractPages {
 	
 	public boolean isElementDisplayed(WebDriver driver,String locator,String...values) {
 		try {
+			highlightElement(driver, locator,values);
 			element = findElementByXpath(driver, locator, values);
 			return element.isDisplayed();
 		} catch (Exception ex) {
@@ -418,20 +428,7 @@ public class AbstractPages {
 		element= driver.findElement(By.xpath(locator));
 		javascriptExecutor.executeScript("arguments[0].removeAttribute('" + attributeRemove + "');", element);
 	}
-	
-	public void highlightElement(WebDriver driver,String locator) {
-		element = driver.findElement(By.xpath(locator));
-		String originalStyle = element.getAttribute("style");
-		javascriptExecutor.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style", "border: 5px solid red; border-style: dashed;");
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		javascriptExecutor.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style", originalStyle);
 
-	}
-	
 	public boolean checkAnyImageLoaded(WebDriver driver, String locator) {
 		element = driver.findElement(By.xpath(locator));
 		javascriptExecutor = (JavascriptExecutor)driver;
@@ -525,6 +522,29 @@ public class AbstractPages {
 		}
 	}
 	
+	public void highlightElement(WebDriver driver,String locator) {
+		js = (JavascriptExecutor) driver;
+		element = findElementByXpath(driver,locator);
+		String originalStyle = element.getAttribute("style");
+		js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style", "border: 3px solid #f20060; border-style: dashed;");
+		sleepInSecond(1);
+		js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style", originalStyle);
+		
+		
+	}
+	
+	public void highlightElement(WebDriver driver,String locator,String...values) {
+		js = (JavascriptExecutor) driver;
+		element = findElementByXpath(driver,locator,values);
+		String originalStyle = element.getAttribute("style");
+		js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style", "border: 3px solid #f20060; border-style: dashed;");
+		sleepInSecond(1);
+		js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2])", element, "style", originalStyle);
+		
+		
+	}
+	
+	
 	public void removeAttributeInDOM(WebDriver driver, String locator, String attributeRemove) {
 		js = (JavascriptExecutor) driver;
 		element = findElementByXpath(driver,locator);
@@ -533,12 +553,14 @@ public class AbstractPages {
 	
 	public void clickToElementByJS(WebDriver driver, String locator) {
 		js = (JavascriptExecutor) driver;
+		highlightElement(driver, locator);
 		element = findElementByXpath(driver,locator);
 		js.executeScript("arguments[0].click();", element);
 	}
 	
 	public void clickToElementByJS(WebDriver driver, String locator,String...values) {
 		js = (JavascriptExecutor) driver;
+		highlightElement(driver, locator,values);
 		element = findElementByXpath(driver,locator,values);
 		js.executeScript("arguments[0].click();", element);
 	}

@@ -20,6 +20,7 @@ import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.BeforeSuite;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -30,6 +31,10 @@ import org.joda.time.DateTimeZone;
 
 public class AbstractTest {
 	private WebDriver driver;
+	public WebDriver getDriver() {
+		return driver;
+	}
+
 	protected final Log log;
 	private String rootFolder = System.getProperty("user.dir");
 	
@@ -38,6 +43,8 @@ public class AbstractTest {
 		
 	}
 	
+	
+	
 	protected void printBrowserConsoleLogs(WebDriver driver) {
 		LogEntries logs = driver.manage().logs().get("browser");
 		List<LogEntry>logList = logs.getAll();
@@ -45,6 +52,32 @@ public class AbstractTest {
 			log.info("-----"+ logging.getLevel().toString()+"-----\n" + logging.getMessage());
 		}
 	}
+	
+	
+	@BeforeSuite
+		public void deleteAllFileslnReportNGScreenshot() {
+		log.info("-----START delete file in folder-----");
+		deleteAllFilelnFolder();
+		log.info("-----END delete file in folder-----");
+	}
+	
+	public void deleteAllFilelnFolder() {
+		try {
+				String workingDir = System.getProperty("user.dir");
+				String pathFolderDownload = workingDir + "\\reportNGImage";
+				File file = new File(pathFolderDownload);
+				File[] listOfFiles = file.listFiles();
+				for(int i=0; i<listOfFiles.length;i++) {
+					if(listOfFiles[i].isFile()) {
+						System.out.println(listOfFiles[i].getName());
+						new File(listOfFiles[i].toString()).delete();
+					}
+				}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	
 	public WebDriver getBrowserDriver(String browserName) {
 		if(browserName.equalsIgnoreCase("chrome")) {
@@ -152,6 +185,8 @@ public class AbstractTest {
 		
 		return driver;
 	}
+	
+	
 	
 	public WebDriver getBrowserDriver(String browserName, String url) {
 		if(browserName.equalsIgnoreCase("chrome")) {

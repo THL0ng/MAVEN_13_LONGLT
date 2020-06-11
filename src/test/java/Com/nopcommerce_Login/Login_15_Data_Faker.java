@@ -8,8 +8,13 @@ import PageObjects.Nop_Commerce.HomePageObject;
 import PageObjects.Nop_Commerce.LoginPageObject;
 import PageObjects.Nop_Commerce.PageGeneratorManager;
 import PageObjects.Nop_Commerce.RegisterPageObject;
+import reportConfig.ExtentTestManager;
+
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
+
+import java.lang.reflect.Method;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 
@@ -38,7 +43,8 @@ public class Login_15_Data_Faker extends AbstractTest  {
 	  } 
 	
   @Test
-  public void TC_01_RegisterToSystem() {
+  public void TC_01_RegisterToSystem(Method method) {
+	  ExtentTestManager.startTest(method.getName(), "TC_01_RegisterToSystem");
 	  homePage.openHeaderPageByName(driver, "Register");
 	  registerPage = PageGeneratorManager.getRegisterPage(driver);
 	  
@@ -73,10 +79,13 @@ public class Login_15_Data_Faker extends AbstractTest  {
 	  registerPage.openHeaderPageByName(driver, "Log out");
 	  homePage = PageGeneratorManager.getHomePage(driver);
 	  
+	  ExtentTestManager.endTest();
+	  
   }
   
   @Test
-  public void TC_02_LoginToSystem() { 
+  public void TC_02_LoginToSystem(Method method) {
+	  ExtentTestManager.startTest(method.getName(), "TC_02_LoginToSystem");
 	  homePage.openHeaderPageByName(driver, "Log in");
 	  loginPage = PageGeneratorManager.getLoginPage(driver);
 	  
@@ -88,7 +97,9 @@ public class Login_15_Data_Faker extends AbstractTest  {
 	 
 
 	  homePage = PageGeneratorManager.getHomePage(driver);
-	  verifyTrue(homePage.isMyAccountLinkDisplayed());	  
+	  verifyTrue(homePage.isMyAccountLinkDisplayed());	
+	  
+	  ExtentTestManager.endTest();
 	 
   }
   

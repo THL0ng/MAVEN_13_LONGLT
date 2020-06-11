@@ -1,4 +1,6 @@
-2020-05-30 20:49:33,049 INFO  Com.nopcommerce_Login.Login_15_Data_Faker -  -------------------------- PASSED -------------------------- 
-2020-05-30 20:49:39,218 INFO  Com.nopcommerce_Login.Login_15_Data_Faker -  -------------------------- PASSED -------------------------- 
-2020-05-30 20:49:39,219 INFO  Com.nopcommerce_Login.Login_15_Data_Faker - OS name = windows 10
-2020-05-30 20:49:40,057 INFO  Com.nopcommerce_Login.Login_15_Data_Faker - ---------- QUIT BROWSER SUCCESS ----------
+2020-06-11 15:54:20,837 INFO  Com.nopcommerce_Login.Login_15_Data_Faker - -----START delete file in folder-----
+2020-06-11 15:54:20,838 INFO  Com.nopcommerce_Login.Login_15_Data_Faker - -----END delete file in folder-----
+2020-06-11 15:54:50,874 INFO  Com.nopcommerce_Login.Login_15_Data_Faker -  -------------------------- PASSED -------------------------- 
+2020-06-11 15:55:02,554 INFO  Com.nopcommerce_Login.Login_15_Data_Faker -  -------------------------- PASSED -------------------------- 
+2020-06-11 15:55:02,555 INFO  Com.nopcommerce_Login.Login_15_Data_Faker - OS name = windows 10
+2020-06-11 15:55:03,420 INFO  Com.nopcommerce_Login.Login_15_Data_Faker - ---------- QUIT BROWSER SUCCESS ----------

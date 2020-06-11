@@ -1,9 +1,9 @@
-1590846558983	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\PC\\AppData\\Local\\Temp\\rust_mozprofiledea12k"
-1590846559331	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
-1590846559345	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
-1590846559345	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
-1590846559345	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
-1590846559345	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1591865662470	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\PC\\AppData\\Local\\Temp\\rust_mozprofilegPeCcv"
+1591865662822	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1591865662833	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1591865662834	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1591865662834	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1591865662834	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
 JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
 JavaScript error: chrome://browser/content/browser-pageActions.js, line 1219: TypeError: this.action is undefined
 JavaScript error: chrome://browser/content/browser-places.js, line 1766: TypeError: PageActions.actionForID(...) is undefined
@@ -16,9 +16,9 @@ _wrapURIChangeCall@chrome://global/content/elements/browser-custom-element.js:94
 loadURI@chrome://global/content/elements/browser-custom-element.js:1001:12
 render/<@chrome://mozapps/content/extensions/aboutaddons.js:1967:15
 render@chrome://mozapps/content/extensions/aboutaddons.js:1926:11
-1590846560862	Marionette	INFO	Listening on port 50830
-1590846560992	Marionette	WARN	TLS certificate errors will be ignored for this session
-1590846579225	Marionette	INFO	Stopped listening on port 50830
+1591865664355	Marionette	INFO	Listening on port 50859
+1591865664492	Marionette	WARN	TLS certificate errors will be ignored for this session
+1591865702562	Marionette	INFO	Stopped listening on port 50859
 
 ###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
